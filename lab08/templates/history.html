@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA APOD - History</title>
+</head>
+<body>
+    <h1>Enter a Date to View APOD</h1>
+    <form method="POST">
+        <input type="date" name="date" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if apod %}
+        <h3>Date: {{ apod['date'] }}</h3>
+        <img src="{{ apod['url'] }}" alt="APOD Image" />
+        <p>{{ apod['explanation'] }}</p>
+        {% if apod['copyright'] %}
+            <p>Copyright: {{ apod['copyright'] }}</p>
+        {% endif %}
+    {% endif %}
+
+    <a href="/">Back to Home Page</a>
+</body>
+</html>
